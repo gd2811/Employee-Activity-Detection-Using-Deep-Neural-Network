@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Live Camera Feed</title>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .camera-frame {
+            width: 640px;
+            height: 480px;
+            background-color: black;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        video {
+            width: 100%;
+            height: 100%;
+            border-radius: 12px;
+        }
+
+        .controls {
+            margin-top: 20px;
+        }
+
+        .btn {
+            background: linear-gradient(90deg, #06b6d4, #3b82f6);
+            padding: 10px 20px;
+            color: white;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 0.05em;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .btn:hover {
+            background: linear-gradient(90deg, #3b82f6, #06b6d4);
+        }
+
+        .btn-secondary {
+            background-color: #f97316;
+        }
+
+        .btn-secondary:hover {
+            background-color: #fb923c;
+        }
+    </style>
+</head>
+
+<body class="bg-gradient-to-r from-blue-500 via-indigo-600 to-purple-700">
+    <!-- Navigation -->
+    <nav class="bg-gray-900 py-4 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="text-white font-bold text-2xl">Employee Activity Recognize</a>
+
+            <!-- Navigation Links -->
+            <div class="space-x-6">
+                <a href="#" class="text-white text-lg hover:text-indigo-300"></a>
+                <a href="{{ url_for('logout') }}" class="bg-indigo-500 text-white px-4 py-2 rounded-lg hover:bg-indigo-600">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mx-auto py-16 px-6">
+        <div class="bg-white p-8 rounded-lg shadow-lg">
+            <div class="text-center">
+                <h1 class="text-3xl font-bold text-gray-800 mb-6">Live Camera Feed</h1>
+                <div class="camera-frame mx-auto mb-4">
+                    <img src="{{ url_for('video_feed') }}" id="camera" alt="Camera Feed">
+                </div>
+
+                <div class="controls">
+                    <button class="btn" onclick="startCamera()">Start Camera</button>
+                    <button class="btn btn-secondary ml-4" onclick="stopCamera()">Stop Camera</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 flex justify-between">
+            <!-- About Us -->
+            <div class="w-1/2">
+                <h2 class="text-xl font-semibold mb-4">About Us</h2>
+                <p class="text-gray-400">We focus on developing AI-based tools for mental health diagnostics and improving mental well-being.</p>
+            </div>
+
+            <!-- Social Links -->
+            <div class="w-1/2 text-right">
+                <h2 class="text-xl font-semibold mb-4">Follow Us</h2>
+                <ul class="inline-flex space-x-4 text-gray-400">
+                    <li><a href="#" class="hover:text-indigo-400">Facebook</a></li>
+                    <li><a href="#" class="hover:text-indigo-400">Twitter</a></li>
+                    <li><a href="#" class="hover:text-indigo-400">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/hyperscript@2.2.0/dist/hyperscript.js"></script>
+    <script>
+        function startCamera() {
+            document.getElementById('camera').src = "{{ url_for('video_feed') }}";
+        }
+
+        function stopCamera() {
+            document.getElementById('camera').src = '';
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,206 @@
+{% extends 'base1.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HomePage</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  {% block style %}
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Sriracha&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Sriracha', cursive;
+    }
+
+    .intro {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 520px;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%), 
+      url("https://indatalabs.com/wp-content/uploads/2022/03/human-activity-recognition-s.jpeg");
+      background-size: cover;
+      background-position: center;
+    }
+
+    .intro h1 {
+      font-size: 60px;
+      color: #fff;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+
+    .intro p {
+      font-size: 20px;
+      color: #d1d1d1;
+      text-transform: uppercase;
+      margin: 20px 0;
+    }
+
+    .intro button {
+      background-color: #5edaf0;
+      color: #000;
+      padding: 10px 25px;
+      border: none;
+      border-radius: 5px;
+      font-size: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s ease;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+    }
+
+    .intro button:hover {
+      background-color: #4dc1c6;
+    }
+
+    .about-me {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 80px;
+      border-top: 2px solid #eeeeee;
+    }
+
+    .about-me img {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 10px;
+    }
+
+    .about-me-text {
+      margin-left: 40px;
+    }
+
+    .about-me-text h2 {
+      font-size: 30px;
+      color: #333;
+      text-transform: uppercase;
+    }
+
+    .about-me-text p {
+      font-size: 15px;
+      color: #585858;
+      margin: 10px 0;
+    }
+
+    .bottom-links {
+      display: flex;
+      justify-content: space-around;
+      padding: 40px 0;
+      background-color: #333;
+    }
+
+    .bottom-links .links {
+      text-align: center;
+    }
+
+    .bottom-links .links span {
+      font-size: 20px;
+      color: #fff;
+      text-transform: uppercase;
+    }
+
+    .bottom-links .links a {
+      color: #a1a1a1;
+      text-decoration: none;
+      padding: 10px 20px;
+      display: block;
+    }
+
+    .image-container {
+      display: flex;
+      justify-content: center;
+      margin: 40px 0;
+    }
+
+    .image-container img {
+      width: 32%;
+      margin: 0 10px;
+      height: 300px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .image-container img:hover {
+      transform: scale(1.1);
+    }
+
+    .content {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 0 20px;
+    }
+
+    .content h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .content p {
+      font-size: 16px;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    @media screen and (max-width: 768px) {
+      .image-container img {
+        height: 200px;
+      }
+
+      .about-me {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .about-me-text {
+        margin: 20px 0 0 0;
+      }
+    }
+  </style>
+  {% endblock %}
+</head>
+
+{% block content %}
+<main>
+  <div class="intro">
+    <h1>Employee Activity Recognition System</h1>
+    <p>System's process for Analyse and Recognize Activities.</p>
+    <button>Learn More</button>
+  </div>
+
+  <div class="about-me">
+    <img src="https://via.placeholder.com/500x300" alt="About Us">
+    <div class="about-me-text">
+      <h2>About Us</h2>
+      <p>Employee activity impacts both personal well-being and society, contributing to cultural development, economic growth, and technological advancement in the company.</p>
+      <p>However, large-scale employee activities, like industrialization and urbanization, also affect the environment and ecosystems, leading to issues like pollution, deforestation, and climate change.</p>
+    </div>
+  </div>
+
+  <div class="image-container">
+    <img src="https://www.researchgate.net/profile/Manosha-Chathuramali/publication/261480718/figure/fig3/AS:296757641662466@1447763943432/figure-fig3_Q320.jpg" alt="Image 1">
+    <img src="https://arxiv.org/html/2002.05907v2/extracted/5372953/figures/example_ntu.png" alt="Image 2">
+    <img src="https://d3i71xaburhd42.cloudfront.net/a472359c246c91b0cd846de4a300be6f34a28721/27-Figure2.2-1.png" alt="Image 3">
+  </div>
+
+  <div class="content">
+    <h1>Our Vision</h1>
+    <p>We strive to make employee activity recognition a seamless part of organizational development to promote both efficiency and well-being.</p>
+  </div>
+</main>
+{% endblock %}

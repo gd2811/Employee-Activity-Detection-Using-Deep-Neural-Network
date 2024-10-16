@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Camera Feed</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f7f7f7;
+        }
+        .container {
+            text-align: center;
+        }
+        .camera-frame {
+            width: 640px;
+            height: 480px;
+            background-color: black;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+        video {
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+        }
+        .controls {
+            margin-top: 20px;
+        }
+        .btn {
+            background-color: #007bff;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Live Camera Feed</h1>
+        <div class="camera-frame">
+            <img src="{{ url_for('video_feed') }}" id="camera" alt="Camera Feed">
+        </div>
+        <div class="controls">
+            <button class="btn" onclick="startCamera()">Start Camera</button>
+            <button class="btn" onclick="stopCamera()">Stop Camera</button>
+        </div>
+    </div>
+
+    <script>
+        function startCamera() {
+            document.getElementById('camera').src = "{{ url_for('video_feed') }}";
+        }
+
+        function stopCamera() {
+            document.getElementById('camera').src = '';
+        }
+    </script>
+
+</body>
+</html>

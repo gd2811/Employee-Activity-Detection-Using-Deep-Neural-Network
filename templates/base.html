@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>{% block title %}{% endblock %} | Website</title>
+</head>
+
+{% block style %}{% endblock %}
+
+<body class="bg-blue-100">
+    <!-- Navigation Bar -->
+    <nav class="bg-gray-600 border-b border-gray-300">
+        <div class="max-w-6xl mx-auto px-6 xl:px-0 flex items-center justify-between py-2">
+            <!-- Left Menu -->
+            <div class="flex items-center space-x-6">
+                <a href="#" class="text-lg font-semibold text-white py-4">
+                    Depression Detection
+                </a>
+                <ul class="flex items-center space-x-4">
+                    <li>
+                        <a href="{{ url_for('home') }}" class="hover:bg-green-600 text-white px-2 py-2 rounded-xl">
+                            Detect Depressed
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="hover:bg-green-600 text-white px-2 py-2 rounded-xl">
+                            Logout
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-600">
+        <div class="max-w-6xl mx-auto px-6 xl:px-0 py-10 md:flex justify-between">
+            <!-- About Us Section -->
+            <div class="mb-12 md:mb-0">
+                <h2 class="text-lg text-white uppercase mb-5">About Us</h2>
+                <p class="text-white">
+                    <!-- About content here -->
+                </p>
+            </div>
+
+            <!-- Social Links Section -->
+            <div>
+                <h2 class="text-lg text-white uppercase mb-5">Social Links</h2>
+                <ul class="space-y-2">
+                    <li>
+                        <a href="#" class="text-white hover:text-green-600">Facebook</a>
+                    </li>
+                    <li>
+                        <a href="#" class="text-white hover:text-green-600">Twitter</a>
+                    </li>
+                    <li>
+                        <a href="#" class="text-white hover:text-green-600">Instagram</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Hyperscript for Additional Functionality -->
+    <script src="https://unpkg.com/hyperscript@2.2.0/dist/hyperscript.js"></script>
+
+    {% block scripts %}
+    {% endblock %}
+</body>
+
+</html>
